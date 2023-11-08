@@ -13,3 +13,5 @@ added db url
 
 To run the server
  add this to script - "server": "nodemon index.js"
+
+ 
