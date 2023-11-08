@@ -1,0 +1,25 @@
+{
+  "name": "questhub-backend",
+  "version": "1.0.0",
+  "description": "QnA-backend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/varun2696/QuestHub-backend.git"
+  },
+  "author": "varun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/varun2696/QuestHub-backend/issues"
+  },
+  "homepage": "https://github.com/varun2696/QuestHub-backend#readme",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0"
+  }
+}
