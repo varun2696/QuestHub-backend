@@ -8,20 +8,29 @@ const userRouter = express.Router();
 
 
 // signup route
-userRouter.post('/signup', (req, res) => {
+userRouter.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
+    
     try {
-        bcrypt.hash(password, 2, async function (err, hash) {
-            // Store hash in your password DB.
-            if (err) {
-                res.status(400).send({ "err": err.message })
-            }
-            else {
-                const user = new UserModel({ name, email, password: hash });
-                await user.save();
-                res.status(200).send({ "msg": "User registered successfully" })
-            }
-        });
+        const user = await UserModel.findOne({ email });
+
+        if (user) {
+            res.status(200).send({ "msg": "User already exists" })
+        }
+        else {
+            bcrypt.hash(password, 2, async function (err, hash) {
+                // Store hash in your password DB.
+                if (err) {
+                    res.status(400).send({ "err": err.message })
+                }
+                else {
+                    const user = new UserModel({ name, email, password: hash });
+                    await user.save();
+                    res.status(200).send({ "msg": "User registered successfully" })
+                }
+            });
+        }
+
     } catch (error) {
         res.status(400).send({ "err": error.message })
     }
