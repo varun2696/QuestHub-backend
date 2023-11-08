@@ -42,19 +42,21 @@ userRouter.post('/login', async (req, res) => {
                     const generatedToken = jwt.sign({ username: user.name, userId: user._id }, 'questHub123');
                     res.status(200).send({ msg: "Login Successful !!", token: generatedToken })
                 }
-                else{
-                    res.status(200).send({msg: "Wrong credentials"})
+                else {
+                    res.status(200).send({ msg: "Wrong credentials" })
                 }
             });
         }
         else {
-            res.status(200).send({msg: "Wrong credentials"})
+            res.status(200).send({ msg: "Wrong credentials" })
         }
     } catch (error) {
-       res.status(400).send({'err': error.message})
+        res.status(400).send({ 'err': error.message })
     }
 
 })
+
+
 module.exports = {
     userRouter
 }
