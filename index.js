@@ -5,7 +5,6 @@ const { PORT } = process.env;
 const app = express();
 
 
-
 app.listen(PORT, async () => {
     try {
         await dbConnection;
