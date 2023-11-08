@@ -10,7 +10,7 @@ const userRouter = express.Router();
 // signup route
 userRouter.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
-    
+
     try {
         const user = await UserModel.findOne({ email });
 
@@ -48,7 +48,11 @@ userRouter.post('/login', async (req, res) => {
             bcrypt.compare(password, user.password, function (err, result) {
                 // result == true
                 if (result) {
-                    const generatedToken = jwt.sign({ username: user.name, userId: user._id }, 'questHub123');
+                    const generatedToken = jwt.sign({
+                        username: user.name,
+                        userId: user._id
+                    }, 'questHub123', { expiresIn: '1h' });
+
                     res.status(200).send({ msg: "Login Successful !!", token: generatedToken })
                 }
                 else {
