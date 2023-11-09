@@ -1,19 +1,35 @@
 # QuestHub-backend
 
-To initialise the project 
-npm init
+- To initialise the project 
+- npm init
 
-Installed packages
-express
-mongoose
-dotenv
-bcrypt
 
-Used mongoose to connect to the db 
-added db url
+# To run the server
+- add this to script - "server": "nodemon index.js"
 
-To run the server
- add this to script - "server": "nodemon index.js"
 
+## Installed packages
+- express
+- mongoose
+- dotenv
+- bcrypt
+- jsonwebtoken
+- cors
+
+## express to create routers
+- created user and question routers
+
+
+## mongoose to connect to the db 
+- created schema and model and connected to db
+
+
+## dotenv to get private variables
+- added db url and port value
+
+## bcrypt and jsonwebtoken
+- For user authorization and authentication 
+- Hash the password using bcrypt
+- generated token using jwt
 
 
