@@ -1,16 +1,24 @@
 const express = require('express');
 const dbConnection = require('./db');
 const { userRouter } = require('./routes/User.route');
+const auth = require('./middlewares/auth');
+const { QnARouter } = require('./routes/QnA.route');
 const { PORT } = process.env;
 
 const app = express();
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    res.send("Server is Working")
-})
+// app.get('/', (req, res) => {
+//     res.send("Server is Working")
+// })
 
 app.use('/users', userRouter)
+
+
+// proteced routes 
+app.use(auth);
+
+app.use("/questions", QnARouter)
 
 app.listen(PORT, async () => {
     try {
