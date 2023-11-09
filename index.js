@@ -8,9 +8,9 @@ const { PORT } = process.env;
 const app = express();
 app.use(express.json());
 
-// app.get('/', (req, res) => {
-//     res.send("Server is Working")
-// })
+app.get('/', (req, res) => {
+    res.send({ msg: "Server is Working. Provide end points to get related data" })
+})
 
 app.use('/users', userRouter)
 
