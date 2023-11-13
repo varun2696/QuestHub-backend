@@ -5,6 +5,7 @@ const auth = require('./middlewares/auth');
 const { QnARouter } = require('./routes/QnA.route');
 const { PORT } = process.env;
 const cors = require('cors');
+const { questionsRouter } = require('./routes/Questions.route');
 
 const app = express();
 
@@ -15,13 +16,16 @@ app.get('/', (req, res) => {
     res.send({ msg: "Server is Working. Provide end points to get related data" })
 })
 
-app.use('/users', userRouter)
 
+
+app.use('/users', userRouter)
+app.use('/questions', questionsRouter)
 
 // proteced routes 
 app.use(auth);
+app.use("/question", QnARouter)
 
-app.use("/questions", QnARouter)
+
 
 app.listen(PORT, async () => {
     try {

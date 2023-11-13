@@ -32,16 +32,16 @@ QnARouter.post('/create', async (req, res) => {
 
 
 // Route for getting all questions
-QnARouter.get('/', async (req, res) => {
-    try {
-        // const questions = await QuestionModel.find({ userId: req.body.userId });
-        const questions = await QuestionModel.find();
-        res.status(200).send(questions);
-    }
-    catch (error) {
-        res.status(400).send({ err: error.message })
-    }
-})
+// QnARouter.get('/', async (req, res) => {
+//     try {
+//         // const questions = await QuestionModel.find({ userId: req.body.userId });
+//         const questions = await QuestionModel.find();
+//         res.status(200).send(questions);
+//     }
+//     catch (error) {
+//         res.status(400).send({ err: error.message })
+//     }
+// })
 
 
 
