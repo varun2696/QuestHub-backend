@@ -4,9 +4,12 @@ const { userRouter } = require('./routes/User.route');
 const auth = require('./middlewares/auth');
 const { QnARouter } = require('./routes/QnA.route');
 const { PORT } = process.env;
+const cors = require('cors');
 
 const app = express();
+
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
     res.send({ msg: "Server is Working. Provide end points to get related data" })
