@@ -51,7 +51,10 @@ userRouter.post('/login', async (req, res) => {
                     const generatedToken = jwt.sign({
                         username: user.name,
                         userId: user._id
-                    }, 'questHub123', { expiresIn: '1h' });
+                    },
+                        'questHub123',
+                        // { expiresIn: '1h' }
+                    );
 
                     res.status(200).send({ msg: "Login Successful !!", token: generatedToken })
                 }
